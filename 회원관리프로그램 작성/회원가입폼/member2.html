@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table {
+            background: bisque;
+
+            /*            color:bisque*/
+        }
+    </style>
+</head>
+
+<body>
+    <hr>
+    <h3>회원가입</h3>
+    <form>
+        <table border="2">
+            <tr>
+                <td>*이름</td>
+                <td><input type="text" name="userName" id="userName"></td>
+            </tr>
+            <tr>
+                <td>*ID</td>
+                <td><input type="text" name="userId" id="userId"></td>
+            </tr>
+            <tr>
+                <td>*비밀번호</td>
+                <td><input type="password" name="userPw" id="userPw"></td>
+            </tr>
+            <tr>
+                <td>*비밀번호 확인</td>
+                <td><input type="password" name="userPwi" id="userPwi"></td>
+            </tr>
+            <tr>
+                <td>*주민등록번호</td>
+                <td><input type="text" name="identity" id="identity">-<input type="text" name="identity1" id="identity1">
+                    <input type="submit" value="주민등록확인"></td>
+            </tr>
+            <tr>
+                <td>*직업</td>
+                <td><select job="직업명"><br>
+                        <option>백앤드</option>
+                        <option>프론트</option>
+                        <option>그냥 개발자</option>
+                    </select>
+            </tr>
+            <tr>
+                <td>*성별</td>
+                <td><input type="radio" id="m">남<label for="m"></label><input type="radio" id="w" name="g"><label for="w" name="g">여</label></td>
+            </tr>
+            <tr>
+                <td>*취미</td>
+                <td><input type="checkbox" id="r">독서<input type="checkbox" id="d">드라이브<input type="checkbox" id="mo">영화<br><input type="checkbox" id="p">콘서트<input type="checkbox" id="s">쇼핑<input type="checkbox" id="play">놀이동산
+                </td>
+            </tr>
+            <tr>
+                <td>*자기소개</td>
+                <td><textarea style="width: 550px; height: 120px;"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center"><input type="submit" value="가입완료" style="margin-right: 5px;"><input type="submit" value="취소"></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+</body></html>
