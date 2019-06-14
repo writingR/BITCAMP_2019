@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery_off</title>
+</head>
+<style>
+   .reverse{
+        background-color: cornflowerblue;
+        color: white;
+        text-align: right;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+    $(document).ready(function(){
+    
+       $('h1').off('click',function(){
+               // this는 이벤트가 발생했을때의 객체
+               $(this).html(function(index,html){
+                  return html+'+';
+              }); 
+           });
+          $('h1').hover(function(){
+         $(this).addClass('reverse');
+     },function(){
+         $(this).removeClass('reverse');
+    });
+        
+        
+        
+
+    });
+</script>    
+<body>
+    <h1>H1-00</h1>
+    <h1>H1-01</h1>
+    <h1>H1-02</h1>
+</body>
+</html>

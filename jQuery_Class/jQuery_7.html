@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery_click,this</title>
+</head>
+<style>
+   .reverse{
+        background-color: cornflowerblue;
+        color: white;
+        text-align: right;
+    }
+    div{
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 150px;
+        padding: 10px;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+    $(document).ready(function(){
+    
+       $('h1').on('click',function(){
+               // this는 이벤트가 발생했을때의 객체
+               $(this).html(function(index,html){
+                  return html+'+';
+              }); 
+           });
+          $('h1').hover(function(){
+         $(this).addClass('reverse');
+     },function(){
+         $(this).removeClass('reverse');
+    });
+        
+        $('div').click(function(){
+            var name = $('h1', this).text();
+            var pNum = $('p', this).text();
+            alert( name + ' : ' +pNum);
+        });
+        
+
+    });
+</script>    
+<body>
+   
+   <div>
+       <h1>손흥민</h1>
+       <p>010-1111-2222</p>
+   </div>
+   <div>
+       <h1>이강인</h1>
+       <p>010-3333-4444</p>
+   </div>
+    <div>
+       <h1>홍길동</h1>
+       <p>010-5555-6666</p>
+   </div>
+   
+</body>
+</html>

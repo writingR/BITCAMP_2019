@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery_preventDefault</title>
+</head>
+<style></style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+    $(document).ready(function(){
+    
+  
+        $('a').click(function(){
+           alert('이동하지 않습니다.');
+            event.preventDefault();
+        });
+        
+    });
+</script>    
+<body>
+   <a href="http://www.naver.com">NAVER</a> 
+</body>
+</html>

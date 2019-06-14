@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery_keyboard_keyup_if</title>
+</head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+    $(document).ready(function(){
+       $('textarea').keyup(function(){
+           var inputVal = $(this).val();
+           var inputLength = $(this).val().length;
+           var remain = 150 - inputLength;
+           
+           
+           if(remain<1){
+            alert('글자수 제한으로 더이상 입력할 수 없습니다.')
+            var inStr = inputVal.substr(0,150);
+            $(this).val(inStr);   
+            $('h2').html('0');
+            return;
+         }
+          
+         $('h2').html(remain);
+           
+      });
+           
+  });
+</script>    
+<body>
+    내용<br>
+    <textarea>
+        
+    </textarea>
+    <h5>**남은문자열**</h5>
+    <hr style="width: 10%;margin-left:0px;">
+    <h2>150</h2>
+</body>
+</html>
+

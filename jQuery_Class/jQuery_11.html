@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery_bubbling--> a href</title>
+</head>
+<style></style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+    $(document).ready(function(){
+    
+  
+        $('a').click(function(){
+           alert('이동하지 않습니다.');
+            return false;
+        });
+        
+        $('#div1').click(function(event){
+            alert('div1 click!');
+            event.stopPropagation();
+        });
+        $('#div2').click(function(event){
+            alert('div2 click!');
+            event.stopPropagation();
+        });
+        $('h5').click(function(event){
+            alert('h5 click!');
+            event.stopPropagation();
+        });
+        
+    });
+</script>    
+<body>
+  <div>
+   <div id="div1" style="padding: 10px; background: #5758BB;color: white;width: 75%">
+       <div id="div2" style="padding: 10px; background: #9980FA;color: white; width: 50%">
+           <h5 style="padding: 10px; background: #FDA7DF;color: white; width: 25%"><a href="http://www.naver.com" >클릭 </a> </h5>
+       </div>
+   </div>
+  </div> 
+   
+</body>
+</html>

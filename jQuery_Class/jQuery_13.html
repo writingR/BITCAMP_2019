@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery_keyboard_keyup</title>
+</head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+    $(document).ready(function(){
+       $('textarea').keyup(function(){
+           var inputLength = $(this).val().length;
+           var remain = 150 - inputLength;
+           
+           $('h2').html(remain);
+       });
+  });
+</script>    
+<body>
+    내용<br>
+    <textarea>
+        
+    </textarea>
+    <h5>**남은문자열**</h5>
+    <hr style="width: 10%;margin-left:0px;">
+    <h2>150</h2>
+</body>
+</html>
