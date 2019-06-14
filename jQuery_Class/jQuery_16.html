@@ -1,0 +1,68 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery_change()_checkbox,radio,select</title>
+</head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+    $(document).ready(function(){
+    
+       $('#form').submit(function(event){
+            var userId = $('#userId').val();
+            var userPw = $('#userPw').val();
+             
+             if(userId.length<1){
+                 alert('아이디를 입력해주세요.');
+                 $('#userId').focus();
+                 return false;
+             }
+             if(userPw.length<1){
+                 alert('비밀번호를 입력해주세요.');
+                 $('#userPw').focus();
+                 return false;
+             }
+             return true;
+         });
+        
+        $('#allCheck').change(function(){
+            var chk = $(this).prop('checked');
+                        // this.checked
+            if(chk){
+                $('#item').children().prop('checked',true);
+            }else{
+                $('#item').children().prop('checked',false);
+            }
+        });
+        $('#year').change(function(){
+           var v1 =$('#year>option:selected').val();
+//           alert(v1);
+           location.href=v1;    
+        });
+  });
+</script>    
+<body>
+
+ 모두선택 <input type="checkbox" id="allCheck">
+ <div id="item">
+     <input type="checkbox">1<br>
+     <input type="checkbox">2<br>
+     <input type="checkbox">3<br>
+     <input type="checkbox">4<br>
+     <input type="checkbox">5<br>
+     
+ </div>
+ 
+ <form id="form">
+     년도
+     <select id="year">
+         <option value="http://www.naver.com">네이버</option>
+         <option value="http://www.daum.net">다음</option>
+         <option value="http://www.google.com">구글</option>
+     </select>
+     <br>
+ </form>
+
+</body>
+</html>
+
