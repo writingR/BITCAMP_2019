@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+        setInterval(function(){
+            
+        $('img').first().appendTo('div');
+        
+        },1000)
+            
+        
+        });
+    </script>
+</head>
+<body>
+    <div style="overflow:hidden; width: 250px;height: 250px;border:1px solid #ddd;">
+        <img style=" width: 250px;height: 250px;" src="../svg/img/snoopy1.JPG">
+        <img style=" width: 250px;height: 250px;" src="../svg/img/snoopy2.JPG">
+        <img style=" width: 250px;height: 250px;" src="../svg/img/snoopy3.JPG">
+        <img style=" width: 250px;height: 250px;" src="../svg/img/snoopy4.JPG">
+    </div>
+    
+</body>
+</html>
