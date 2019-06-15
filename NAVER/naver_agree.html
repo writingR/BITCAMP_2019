@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/naver.css">
+</head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+     $(document).ready(function() {
+        
+            $('#allCheck').change(function() {
+                var chk = $(this).prop('checked');
+                if (chk) {
+                    $('.item').children().prop('checked', true);
+                } else {
+                    $('.item').children().prop('checked', false);
+                }
+            });
+
+        });
+</script>
+<body>
+    <div id="wrap">
+        
+        <div id="header" >
+         <div id="headWrap">
+         <a href="http://www.naver.com/"><img class="n_logo" src="img/naver.png"></a>
+         <select>
+                <option>한국어</option>
+                <option>English</option>
+                <option>中文(简体)</option>
+                <option>中文(台灣)</option>
+        </select>
+        </div>
+        </div>
+        <div id="All" style="margin-left: 39%;margin-top: 50px;">
+            <input type="checkbox" id="allCheck" style="margin-left: -1000px;" name="agree" class="ched">
+            <label for="allCheck">
+            <span style="display: inline-block;margin-left: 20px;text-decoration: underline;font-weight: 660;font-size:15px;">이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택),<br>
+            프로모션 안내 메일 수신(선택)에 모두 동의합니다.</span>
+            </label>
+        </div>
+        
+        <div class="item" style="margin-left: 39%;margin-top: 50px;">
+            <input type="checkbox" id="chk1" style="margin-left: -1000px;" name="agree" class="ched">
+            <label for="chk1">
+            <span style="display: inline-block;margin-left: 25px;font-weight: 660;">네이버 이용약관 동의<span style="font-size: 12px;
+            color:#2db400;font-weight: 400;">(필수)</span>
+            </span>
+            </label>
+            <p class="info">
+                        정보통신망법 규정에 따라 네이버에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.<br><br>1. 수집하는 개인정보<br>이용자는 회원가입을 하지 않아도 정보 검색, 뉴스 보기 등 대부분의 네이버 서비스를 회원과 동일하게 이용할 수 있습니다. 이용자가 메일, 캘린더, 카페, 블로그 등과 같이 개인화 혹은 회원제 서비스를 이용하기 위해 회원가입을 할 경우, 네이버는 서비스 이용을 위해 필요한 최소한의 개인정보를 수집합니다.<br><br>회원가입 시점에 네이버가 이용자로부터 수집하는 개인정보는 아래와 같습니다.<br>- 회원 가입 시에 ‘아이디, 비밀번호, 이름, 생년월일, 성별, 가입인증 휴대전화번호’를 필수항목으로 수집합니다. 만약 이용자가 입력하는 생년월일이 만14세 미만 아동일 경우에는 법정대리인 정보(법정대리인의 이름, 생년월일, 성별, 중복가입확인정보(DI), 휴대전화번호)를 추가로 수집합니다. 그리고 선택항목으로 이메일 주소를 수집합니다.<br>- 단체아이디로 회원가입 시 단체아이디, 비밀번호, 단체이름, 이메일주소, 가입인증 휴대전화번호를 필수항목으로 수집합니다. 그리고 단체 대표자명을 선택항목으로 수집합니다.<br><br>서비스 이용 과정에서 이용자로부터 수집하는 개인정보는 아래와 같습니다.<br>NAVER 내의 개별 서비스 이용, 이벤트 응모 및 경품 신청 과정에서 해당 서비스의 이용자에 한해 추가 개인정보 수집이 발생할 수 있습니다. 추가로 개인정보를 수집할 경우에는 해당 개인정보 수집 시점에서 이용자에게 ‘수집하는 개인정보 항목, 개인정보의 수집 및 이용목적, 개인정보의 보관기간’에 대해 안내 드리고 동의를 받습니다.
+                    </p>
+        </div>
+        
+        <div class="item" style="margin-left: 39%;margin-top: 30px;">
+            <input type="checkbox" id="chk2" style="margin-left: -1000px;" name="agree" class="ched">
+            <label for="chk2">
+            <span style="display: inline-block;margin-left: 25px;font-weight: 660;">개인정보 수집 및 이용에 대한 안내<span style="font-size: 12px;color:#2db400;font-weight: 400;">(필수)</span>
+            </span>
+            </label>
+            <p class="info">
+                        정보통신망법 규정에 따라 네이버에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.<br><br>1. 수집하는 개인정보<br>이용자는 회원가입을 하지 않아도 정보 검색, 뉴스 보기 등 대부분의 네이버 서비스를 회원과 동일하게 이용할 수 있습니다. 이용자가 메일, 캘린더, 카페, 블로그 등과 같이 개인화 혹은 회원제 서비스를 이용하기 위해 회원가입을 할 경우, 네이버는 서비스 이용을 위해 필요한 최소한의 개인정보를 수집합니다.<br><br>회원가입 시점에 네이버가 이용자로부터 수집하는 개인정보는 아래와 같습니다.<br>- 회원 가입 시에 ‘아이디, 비밀번호, 이름, 생년월일, 성별, 가입인증 휴대전화번호’를 필수항목으로 수집합니다. 만약 이용자가 입력하는 생년월일이 만14세 미만 아동일 경우에는 법정대리인 정보(법정대리인의 이름, 생년월일, 성별, 중복가입확인정보(DI), 휴대전화번호)를 추가로 수집합니다. 그리고 선택항목으로 이메일 주소를 수집합니다.<br>- 단체아이디로 회원가입 시 단체아이디, 비밀번호, 단체이름, 이메일주소, 가입인증 휴대전화번호를 필수항목으로 수집합니다. 그리고 단체 대표자명을 선택항목으로 수집합니다.<br><br>서비스 이용 과정에서 이용자로부터 수집하는 개인정보는 아래와 같습니다.<br>NAVER 내의 개별 서비스 이용, 이벤트 응모 및 경품 신청 과정에서 해당 서비스의 이용자에 한해 추가 개인정보 수집이 발생할 수 있습니다. 추가로 개인정보를 수집할 경우에는 해당 개인정보 수집 시점에서 이용자에게 ‘수집하는 개인정보 항목, 개인정보의 수집 및 이용목적, 개인정보의 보관기간’에 대해 안내 드리고 동의를 받습니다.
+                    </p>
+        </div>        
+        
+         <div class="item" style="margin-left: 39%;margin-top: 30px;">
+            <input type="checkbox" id="chk3" style="margin-left: -1000px;" name="agree" class="ched">
+            <label for="chk3">
+            <span style="display: inline-block;margin-left: 25px;font-weight: 660;">위치정보 이용약관 동의<span style="font-size: 12px;color:#bdc3c7;font-weight: 400;">(선택)</span>
+            </span>
+            </label>
+            <p class="info">
+                        정보통신망법 규정에 따라 네이버에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.<br><br>1. 수집하는 개인정보<br>이용자는 회원가입을 하지 않아도 정보 검색, 뉴스 보기 등 대부분의 네이버 서비스를 회원과 동일하게 이용할 수 있습니다. 이용자가 메일, 캘린더, 카페, 블로그 등과 같이 개인화 혹은 회원제 서비스를 이용하기 위해 회원가입을 할 경우, 네이버는 서비스 이용을 위해 필요한 최소한의 개인정보를 수집합니다.<br><br>회원가입 시점에 네이버가 이용자로부터 수집하는 개인정보는 아래와 같습니다.<br>- 회원 가입 시에 ‘아이디, 비밀번호, 이름, 생년월일, 성별, 가입인증 휴대전화번호’를 필수항목으로 수집합니다. 만약 이용자가 입력하는 생년월일이 만14세 미만 아동일 경우에는 법정대리인 정보(법정대리인의 이름, 생년월일, 성별, 중복가입확인정보(DI), 휴대전화번호)를 추가로 수집합니다. 그리고 선택항목으로 이메일 주소를 수집합니다.<br>- 단체아이디로 회원가입 시 단체아이디, 비밀번호, 단체이름, 이메일주소, 가입인증 휴대전화번호를 필수항목으로 수집합니다. 그리고 단체 대표자명을 선택항목으로 수집합니다.<br><br>서비스 이용 과정에서 이용자로부터 수집하는 개인정보는 아래와 같습니다.<br>NAVER 내의 개별 서비스 이용, 이벤트 응모 및 경품 신청 과정에서 해당 서비스의 이용자에 한해 추가 개인정보 수집이 발생할 수 있습니다. 추가로 개인정보를 수집할 경우에는 해당 개인정보 수집 시점에서 이용자에게 ‘수집하는 개인정보 항목, 개인정보의 수집 및 이용목적, 개인정보의 보관기간’에 대해 안내 드리고 동의를 받습니다.
+                    </p></div>
+       
+        <div class="item" style="margin-left: 39%;margin-top: 30px;">
+            <input type="checkbox" id="chk4" style="margin-left: -1000px;" name="agree" class="ched">
+            <label for="chk4">
+            <span style="display: inline-block;margin-left: 25px;font-weight: 660;">이벤트 등 프로모션 알림 메일 수신<span style="font-size: 12px;color:#bdc3c7;font-weight: 400;">(선택)</span>
+            </span>
+            </label>
+        </div>
+        
+        
+        <div class="btn">
+            <input type="button" value="비동의" style=" background: #8e8e8e">
+            <input type="button" value="동의" style="background: #08a600">
+            <p style="font-size: 12px;text-align: left;margin-left: 40px;font-weight: 100px;color:#636e72">회사, 동아리 등 단체에서 사용할 ID가 필요하세요? <span style="text-decoration: underline;font-weight: 500;color: black">단체 회원 가입</span></p>
+        </div>
+        
+        <div class="footer" style="text-align: center;">
+            <div>
+                <p style="text-align: center; font-size: 12px;margin-top: 30px; opacity: 0.8">이용약관 | <span style="font-weight: 900;">개인정보처리방침 </span>| 책임의 한계와 | 법적고지 | 회원정보 | 고객센터</p>
+                <div>
+                    <img id="footlogo" src="img/naver.png">
+                    <span style="font-size:9px;margin-left: 6px;text-align: center;vertical-align:10px;">Copyright <span style="font-weight: 800;">NAVER Corp.</span> All Rights Reserved.</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

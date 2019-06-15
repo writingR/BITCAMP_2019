@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    .header .n_logo{
+    width: 150px;
+    background-size: 137px auto;
+    color: transparent;
+    background-repeat:  no-repeat 0 0;
+    margin-left: 46%;
+    margin-top: 1%;
+    }
+    .boxStyle{
+        display: block;
+        width: 375px;
+        padding: 5px;
+        border: 1px solid #b2bec3;
+        opacity: 0.5;
+    }
+    .boxStyle1{
+        display: inline-block;
+        width: 113px;
+        padding: 5px;
+        border: 1px solid #b2bec3;
+        opacity: 0.6;
+    }
+    #regBox{
+        margin-left: 38%;
+        margin-top: -1%
+    }
+</style>
+<body>
+<!--   <span style="color: #636e72;font-size: 13px;margin-left: 38px;">@naver.com</span>-->
+    <div id="wrap">
+        <div class="header">
+          <img class="n_logo" src="img/naver.png">    
+        </div>
+        <form id="regBox">
+        <div>
+            <p style="font-size: 11px;font-weight:750"><label for="ch1">아이디</label></p>
+            <span class="boxStyle">
+            <input type="text" id="ch1" style="display: inline-block;width: 280px;padding: 5px;border:0;" class="formBox">
+            <span style="color: #636e72;font-size: 13px">@naver.com</span>  
+            </span>
+            
+        </div>
+    
+         <div>
+            <p style="font-size: 11px;font-weight:750"><label for="ch2">비밀번호</label></p>
+            <span class="boxStyle">
+            <input type="text" id="ch2" style="display: inline-block;width: 340px;padding: 5px;border:0;" class="formBox">
+            <img src="img/m_icon_pass.png" style="width: 17px;margin-top: 3px;">
+             </span>     
+        </div>
+        
+        <div>
+             <p style="font-size: 11px;font-weight:750"><label for="ch3">비밀번호</label></p>
+            <span class="boxStyle">
+            <input type="text" id="ch3" style="display: inline-block;width: 340px;padding: 5px;border:0;" class="formBox">
+            <img src="img/m_icon_check_disable.png" style="width: 17px;margin-top: 3px;">
+             </span>  
+        </div>
+        
+        <div>
+            <p style="font-size: 11px;font-weight:750;margin-top: 20px;"><label for="ch4">이름</label></p>
+            <span class="boxStyle">
+            <input type="text" id="ch4" style="display: inline-block;width: 360px;padding: 5px;border:0;" class="formBox">
+             </span>    
+        </div>
+        
+        
+         <div>
+            <p style="font-size: 11px;font-weight:750;"><label for="ch5">생년월일</label></p>
+            
+            <span class="boxStyle1">
+            <input type="text" id="ch5" style="display: inline-block;width: 100px;padding: 5px;border:0;opacity: 0.5" class="formBox" value="년(4자)">
+            </span>
+            <span class="boxStyle1">
+                <select id="ch6" style="display: inline-block;width: 100px;padding: 5px;border:0;opacity: 0.5" class="formBox" value="년(4자)">
+                <option></option>    
+                </select>
+            </span>
+            <span class="boxStyle1">
+            <input type="text" id="ch7" style="display: inline-block;width: 100px;padding: 5px;border:0;opacity: 0.5" class="formBox" value="일">
+            </span>    
+                 
+        </div>
+        
+         <div>
+            <p style="font-size: 11px;font-weight:750;"><label for="ch8">성별</label></p>
+            <span class="boxStyle">
+            <select id="ch8" style="display: inline-block;width: 360px;padding: 5px;border:0;" class="formBox">
+            <option selected>성별</option>
+            <option>남자</option>    
+            <option>여자</option>        
+            </select>
+             </span>    
+        </div>
+        
+        <div>
+            <p style="font-size: 11px;font-weight:750"><label for="ch9">본인 확인 이메일<span style="font-size:9px;color: #b2bec3 ">(선택)</span></label></p>
+            <span class="boxStyle">
+            <input type="text" id="ch9" style="display: inline-block;width: 360px;padding: 5px;border:0;" class="formBox"> 
+            </span>
+        </div>
+        
+        <div style="">
+            <p style="font-size: 11px;font-weight:750"><label for="ch10">휴대전화</label></p>
+            <span class="boxStyle">
+            <input type="text" id="ch10" style="display: inline-block;width: 360px;padding: 5px;border:0;" class="formBox"> 
+            </span>
+            <span class="boxStyle1" style="margin-top: 3px;width:250px;">
+            <input type="text" id="ch11" style="display: inline-block;width: 230px;padding: 5px;border:0;margin: 2px;opacity: 0.7" class="formBox" value="전화번호 입력"> 
+            </span>
+            <input type="button" id="ch12" style="display: inline-block;width: 114px;padding: 8px;border:1px solid #2db400;margin: 2px;background: #2db400;color: white" class="formBox" value="인증번호 받기">
+            <span class="boxStyle" style="margin-top: 3px;">
+            <input type="text" id="ch13" style="display: inline-block;width: 360px;padding: 5px;border:0;margin: 2px;opacity: 0.7" class="formBox" value="인증번호를 입력하세요."> 
+            </span> 
+        </div>
+        
+        
+        <div>
+
+            <input type="button" id="ch14" style="display: inline-block;width: 385px;padding: 10px;border:1px solid #2db400;margin-top: 20px;background: #2db400;font-size: 15px;color: white;font-weight: 600;" class="formBox" value="가 입 하 기"> 
+
+        </div>
+        
+        </form>
+        
+    </div>
+</body>
+</html>

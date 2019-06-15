@@ -1,0 +1,83 @@
+
+#header .n_logo{
+    width: 247px;
+    background-size: 137px auto;
+    color: transparent;
+    background-repeat:  no-repeat 0 0;
+    margin-left: 43%;
+    margin-top: 4%;
+}
+#headWrap>select{
+    width: 100px;
+    height: 30px;
+    vertical-align: 90px;
+    margin-left: 130px;
+}
+input[type=checkbox] {
+           position: absolute;
+           visibility: hidden;
+       }
+
+
+#All>label{
+    background: url("../img/middleChk.png") no-repeat;
+    padding: 14px;
+}
+.item>label{
+    background: url("../img/smallChk.png") no-repeat;
+}
+
+.item:checked+label{
+    background: url("../img/smallChkon.png") no-repeat;
+}
+
+/*
+.check > label {
+    background-image: url(https://static.nid.naver.com/images/ui/myinfo/pc_chcek_off_s_20.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding: 5px 0;
+}
+*/
+.info{
+    width: 450px;
+    height: 80px;
+    border: 1px solid #bdc3c7;
+    overflow: auto;
+    font-size: 10px;
+    padding: 3px; 
+}
+::-webkit-scrollbar{
+   width: 8px;
+   background: transparent;
+}
+.btn{
+   margin-left: 39%;
+   margin-top: 30px;
+}
+input[type=button] {
+    display: inline-block;
+    color: white;
+    font-size: 20px;
+    width: 228px;
+    padding: 25px;
+}
+input[type="checkbox"]{
+    position: absolute;
+}
+input[type="checkbox"]+label{
+    position: relative;
+}
+input[type="checkbox"]:checked+label{
+    background: url("../img/smallChkon.png") no-repeat;
+}
+#allCheck[type="checkbox"]:checked+label{
+    background: url("../img/middleChkon.png") no-repeat;
+}
+#footlogo{
+    width: 70px;
+    vertical-align: 8px;
+}
+.footer{
+   margin-left: 4%;    
+}
