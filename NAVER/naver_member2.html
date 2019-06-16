@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naver_member2</title>
+</head>
+<style>
+body{background:#f5f6f7;overflow: scroll;}
+.header .n_logo{
+    width: 200px;
+    background-size: 137px auto;
+    color: transparent;
+    background-repeat:  no-repeat 0 0;
+    margin-left: 46%;
+    margin-top: 2%;
+    }
+.form{
+    margin-top: 30px;
+    text-align: center;
+    margin-right: 240px;
+    }
+.form_Name{
+    font-size: 10.9px;
+    font-weight: 650;
+    margin-top: 30px;
+    }
+.bigBox{
+    display:inline-block;
+    width: 370px;
+    padding: 7px;
+    border: 1px solid #b2bec3;
+    opacity: 0.6;
+    margin-left: 344px;
+    background: white;
+    margin-top: -5px;
+    }
+.smallBox{
+    display: inline-block;
+    width: 255px;
+    height: 20px;
+    margin-top: -80px;
+    margin-left: -6px;
+    border: 0px;
+    }
+#lock{
+    width: 15px;
+    margin-top: -1px;
+    margin-left: 59px;
+    }
+#lock1{
+    width: 15px;
+    margin-top: -1px;
+    margin-left: 59px;
+    }
+.yearBigBox{
+    display: inline-block;
+    width: 108px;
+    padding: 7px;
+    border: 1px solid #b2bec3;
+    opacity: 0.6;
+    background: white;
+    }
+.yearBox1{
+    display: inline-block;
+    width: 100px;
+    padding: 5px;
+    border: 0;
+    }
+.selectText{
+    font-size: 9.5px;
+    color:#636e72;
+    opacity: 0.7;
+    }
+.btn_Style{
+    width: 389px;
+    padding: 10px;
+    border: 1px solid #2db400;
+    background: #2db400;
+    color: white;
+    font-size: 17px;
+    margin-left: 345px;
+    margin-top: 20px;
+    }
+#footlogo{
+    width: 70px;
+    vertical-align: 8px;    
+    }    
+</style>
+<body>
+<div id="wrap">
+    <div class="header">
+        <img class="n_logo" src="img/naver.png">
+    </div>
+    <div class="regForm">
+    <form class="form">
+       
+        <p class="form_Name" style="margin-left: -5px;"><label for="ch1">아이디</label></p>
+        <span class="bigBox">
+        <input type="text" class="smallBox" id="ch1" required>
+        <span style="font-size: 13px;margin-left: 35px;opacity: 0.7;">@naver.com</span>    
+        </span>
+
+        <p class="form_Name"><label for="ch2">비밀번호</label></p>
+        <span class="bigBox">
+        <input type="password" class="smallBox" id="ch2" required>
+        <span style="font-size: 13px;margin-left: 35px;">
+        <img src="img/m_icon_pass.png" id="lock">    
+        </span>    
+        </span>  
+       
+        <p class="form_Name" style="margin-left: 37px;"><label for="ch3">비밀번호 재확인</label></p>
+        <span class="bigBox">
+        <input type="password" class="smallBox" id="ch3" required>
+        <span style="font-size: 13px;margin-left: 35px;">
+        <img src="img/m_icon_check_disable.png" id="lock1">    
+        </span>    
+        </span>  
+        
+        <p class="form_Name" style="margin-left: -20px;"><label for="ch4">이름</label></p>
+        <span class="bigBox">
+        <input type="text" style="width: 370px;margin-left:1px" class="smallBox" id="ch4" required>   
+        </span>
+        
+        
+        <div style="margin-left: 340px;">
+            <p class="form_Name" style="margin-left: -340px;"><label for="ch5">생년월일</label></p>
+            
+            <span class="yearBigBox">
+            <input type="text" id="ch5" style="display: inline-block;width: 100px;padding: 5px;border:0;" class="yearBox1" placeholder="년(4자)">
+            </span>
+            <span class="yearBigBox">
+                <select id="ch6" style="display: inline-block;width: 100px;padding: 5px;border:0;" class="yearBox1" value="년(4자)">
+                <option></option>    
+                </select>
+            </span>
+            <span class="yearBigBox">
+            <input type="text" id="ch7" style="display: inline-block;width: 100px;padding: 5px;border:0;" class="yearBox1" placeholder="일">
+            </span>    
+        </div>
+       
+        <p class="form_Name" style="margin-left: -20px;"><label for="ch8">성별</label></p>
+        <span class="bigBox">
+        <select style="width: 360px;" class="smallBox" id="ch8" required>
+        <option selected>성별</option> 
+        <option>남자</option><option>여자</option>   
+        </select>   
+        </span>
+
+        <p class="form_Name" style="margin-left: 70px;"><label for="ch9">본인 확인 이메일<span class="selectText">(선택)</span></label></p>
+        <span class="bigBox">
+        <input type="text" style="width: 370px;margin-left:1px" class="smallBox" id="ch9" placeholder="선택입력" required>   
+        </span>
+       
+        <div>
+            <p style="font-size: 11px;font-weight:750"><label for="ch10">휴대전화</label></p>
+            <span class="bigBox" style="width: 373px;display: block;margin-left: 48.3%;">
+            <select id="ch10" style="display:inline-block;width: 360px;padding: 5px;border:0;" class="formBox">
+            <option selected>대한민국 +82</option>
+            <option>나카라과 +505</option>    
+            </select> 
+            </span>
+            <span class="bigBox" style="margin-top: 8px;width:250px;">
+            <input type="text" id="ch11" style="display: inline-block;width: 230px;padding: 5px;border:0;margin: 2px;" class="formBox" placeholder="전화번호 입력"> 
+            </span>
+            <input type="button" id="ch12" style="display: inline-block;width: 114px;padding: 8px;border:1px solid #2db400;margin: 2px;background: #2db400;color: white" class="formBox" value="인증번호 받기">
+            <span class="bigBox" style="width: 373px;margin-top: 8px;">
+            <input type="text" id="ch13" style="display: inline-block;width: 360px;padding: 5px;border:0;margin: 2px;" class="formBox" placeholder="인증번호를 입력하세요."> 
+            </span> 
+        </div>
+      
+        <input type="submit" class="btn_Style" value="가입하기" required>
+        
+    </form>
+    </div>
+     
+    <div class="footer" style="text-align: center; margin-left: 6%">
+            <div>
+                <p style="text-align: center; font-size: 12px;margin-top: 30px; opacity: 0.8">이용약관 | <span style="font-weight: 900;">개인정보처리방침 </span>| 책임의 한계와 | 법적고지 | 회원정보 | 고객센터</p>
+                <div>
+                    <img id="footlogo" src="img/naver.png">
+                    <span style="font-size:9px;margin-left: 6px;text-align: center;vertical-align:10px;">Copyright <span style="font-weight: 800;">NAVER Corp.</span> All Rights Reserved.</span>
+                </div>
+            </div>
+    </div>
+</div>
+</body>
+</html>
