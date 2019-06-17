@@ -77,7 +77,7 @@
         width: 108px;
         padding: 7px;
         border: 1px solid #b2bec3;
-        opacity: 0.6;
+        opacity: 0.7;
         background: white;
     }
 
@@ -120,7 +120,12 @@
 <script>
     //    
     var patternId = /^[a-z]{1}[a-z0-9_-]{4,19}$/;
-    var patternPw = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]|.*[0-9]).{8,24}$/
+    var patternPw = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]|.*[0-9]).{8,24}$/;
+    var patternName = /^[가-힣]{2,4}$/;
+    var patternYear = /1\d{3}|200\d|201[0-9]/;
+    var patternMail = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{1,5}$/;
+
+출처: https://intro0517.tistory.com/135 [전디버거의 코딩이야기]
     
     //5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다. 첫글자는 영문소문자로 시작하는것을 원칙으로 한다.
     //8~24자 영문대소문자, 숫자, 특수문자 혼합 사용
@@ -155,9 +160,10 @@
              
             if($(this).val() == $('#ch2').val()) {
             $('#pwr1').html('안전').css('color','#2db400').css('margin-left','10px').css('vertical-aligh','2px')
-            .css('font-size','11px')
-            $(this).next().find('img').attr('src','img/m_icon_check_enable.png')
-            ;}else{
+            .css('font-size','11px');
+            $('#pwr').html('비밀번호가 같습니다.').css('color','#2db400').css('margin-left','70px').css('font-size','11px');
+            $(this).next().find('img').attr('src','img/m_icon_check_enable.png');
+            }else{
             $(this).next().find('img').attr('src','img/error.png')
             $('#pwr').html('비밀번호가 다릅니다.').css('color','red').css('margin-left','70px').css('font-size','11px');
             $('#pwr1').html('불일치').css('color','red').css('margin-left','-10px').css('vertical-aligh','2px')
@@ -166,16 +172,47 @@
             
         });
         
-        $('#ch4').focusout(function() {
+         $('#ch4').focusout(function() {
             if ($(this).val().length < 1) {
-            $('#name').html('필수 정보입니다.').css('color','red').css('margin-left','50px').css('font-size','11px');
-        }
+            $('#name').html('필수 정보입니다.').css('color','red').css('margin-left','50px').css('font-size','11px');}
+        
+         if(patternName.test($(this).val()) ){
+            $(this).closest('.bigBox').css('border-color', '#b2bec3'); 
+         }
+         
         });
+        
         $('#ch5').focusout(function() {
             if ($(this).val().length < 1) {
             $('#birth').html('태어난 년도 4자리를 정확하게 입력하세요.').css('color','red').css('margin-left','180px').css('font-size','11px');
         }
+             
+         if($(this).val()<1920){
+            $('#birth').html('정말이세요?').css('color','red').css('margin-left','180px').css('font-size','11px'); 
+         }else if($(this).val()>2019){
+            $('#birth').html('미래에서 오셨군요. ^^').css('color','red').css('margin-left','180px').css('font-size','11px');  
+         }
         });
+        
+        $('#ch8').focusout(function() {
+            if (!($(this).val().select)) {
+            $('#gender').html('선택 정보입니다.').css('color','#b2bec3').css('margin-left','50px').css('font-size','11px');
+        }else{
+            
+            $(this).closest('.bigBox').css('border-color', '#b2bec3');
+            $('#gender').html('최고예요!!').css('color','#2db400').css('margin-left','50px').css('font-size','11px');    
+            }
+        });
+        
+        $('#ch9').focusout(function() {
+            if(patternMail.test($(this).val()) ){
+                $(this).closest('.bigBox').css('border-color', '#b2bec3'); 
+            } 
+        });
+
+        
+       
+       
         $('#ch11').focusout(function() {
             if ($(this).val().length < 1) {
             $('#tel').html('필수 정보입니다.').css('color','red').css('margin-left','50px').css('font-size','11px');
@@ -265,7 +302,7 @@
                     </span>
                     <span class="yearBigBox">
                         <select id="ch6" style="display: inline-block;width: 100px;padding: 5px;border:0;" class="yearBox1" value="년(4자)">
-                            <option></option>
+                            <option selected>월</option><option>1</option><option>2</option>
                         </select>
                     </span>
                     <span class="yearBigBox">
@@ -282,7 +319,8 @@
                         <option>여자</option>
                     </select>
                 </span>
-
+                <div id="gender"></div>
+    
                 <p class="form_Name" style="margin-left: 70px;"><label for="ch9">본인 확인 이메일<span class="selectText">(선택)</span></label></p>
                 <span class="bigBox">
                     <input type="text" style="width: 370px;margin-left:1px" class="smallBox" id="ch9" placeholder="선택입력" required>
