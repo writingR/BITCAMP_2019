@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API_jquery</title>
+</head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#range').change(function(){
+           alert($(this).val()); 
+        });
+        $('#color').change(function(){
+           $('#color+span').html($(this).val()); 
+        });
+    });
+</script>
+<body>
+    <form>
+    아이디<input type="text" name="keyword" autocomplete="off"><br>
+    <!--이메일은 @까지 포함해서 입력해야함.-->
+    이메일<input type="email" name="email"><br>
+    <!--나이는 문자허용안됨.숫자만-->
+    나이<input type="number" name="age"><br>
+    <!--URL은 정상적인 URL을 입력해야 허용됨-->
+    URL <input type="URL" name="URL"><br>
+    <!--전화번호는 문자,숫자등 제약이 크게 없음.-->
+    TEL <input type="tel" name="tel"><br>
+    RANGE <input type="range" name="range" id="range" style="width: 100%;"><br>
+    DATE <input type="date" name="date" id="date"><br>
+    WEEK <input type="week" name="week" id="week"><br>
+    MONTH <input type="month" name="month" id="month"><br>
+    COLOR <input type="color" id="color"><span></span><br>
+    <input type="submit">
+    </form>
+</body>
+</html>
