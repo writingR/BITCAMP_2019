@@ -84,8 +84,37 @@ body{background:#f5f6f7;overflow: scroll;}
 #footlogo{
     width: 70px;
     vertical-align: 8px;    
+    }
+/*
+.style_Select option.option_style{
+    font-size: 11px;    
     }    
+*/
 </style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.smallBox').focusin(function(){
+           $(this).closest('.bigBox').css('border-color','#2db400');
+        });
+        $('.smallBox').focusout(function(){
+           $(this).closest('.bigBox').css('border-color','#b2bec3'); 
+        });
+        
+        $('.yearBox1').focusin(function(){
+           $(this).closest('.yearBigBox').css('border-color','#2db400'); 
+        });
+        $('.yearBox1').focusout(function(){
+           $(this).closest('.yearBigBox').css('border-color','#b2bec3'); 
+        });
+        $('.formBox').focusin(function(){
+           $(this).closest('.bigBox').css('border-color','#2db400'); 
+        });
+         $('.formBox').focusout(function(){
+           $(this).closest('.bigBox').css('border-color','#b2bec3'); 
+        });
+    });
+</script>
 <body>
 <div id="wrap">
     <div class="header">
@@ -95,8 +124,8 @@ body{background:#f5f6f7;overflow: scroll;}
     <form class="form">
        
         <p class="form_Name" style="margin-left: -5px;"><label for="ch1">아이디</label></p>
-        <span class="bigBox">
-        <input type="text" class="smallBox" id="ch1" required>
+        <span class="bigBox" name="idB">
+        <input type="text" class="smallBox" id="ch1" onclick="" required>
         <span style="font-size: 13px;margin-left: 35px;opacity: 0.7;">@naver.com</span>    
         </span>
 
@@ -151,12 +180,13 @@ body{background:#f5f6f7;overflow: scroll;}
         <input type="text" style="width: 370px;margin-left:1px" class="smallBox" id="ch9" placeholder="선택입력" required>   
         </span>
        
-        <div>
+        <div class="style_Select">
             <p style="font-size: 11px;font-weight:750"><label for="ch10">휴대전화</label></p>
-            <span class="bigBox" style="width: 373px;display: block;margin-left: 48.3%;">
-            <select id="ch10" style="display:inline-block;width: 360px;padding: 5px;border:0;" class="formBox">
-            <option selected>대한민국 +82</option>
-            <option>나카라과 +505</option>    
+            <span class="bigBox" style="width: 360px;display: block;margin-left: 48.8%;">
+            <select id="ch10" style="display:inline-block;width: 360px;padding: 5px;border:0;font-size: 12px;" class="formBox">
+            <option class="option_style" selected>국가</option>
+            <option class="option_style" style="font-size: 12px;">대한민국 +82</option>
+            <option class="option_style" style="font-size: 12px;">나카라과 +505</option>    
             </select> 
             </span>
             <div>
