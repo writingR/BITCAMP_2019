@@ -62,6 +62,13 @@ input[type=button] {
     width: 228px;
     padding: 25px;
 }
+.agree1{
+    display: inline-block;
+    color: white;
+    font-size: 20px;
+    width: 228px;
+    padding: 25px;
+}
 input[type="checkbox"]{
     position: absolute;
 }
