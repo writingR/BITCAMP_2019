@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+#header{
+border-bottom: 1px solid #ddd;
+padding: 20px;
+}
+#header h1{
+margin-left:20px;
+}
+#nav{
+border-bottom: 1px solid #ddd;
+}
+#nav ul{
+overflow: hidden;
+}
+#nav li{
+list-style: none;
+float: left;
+padding : 10px;
+vertical-align: middle;
+margin-top: 5px;
+}
+#contents h1{
+padding: 15px;
+}
+#contents{
+border-bottom: 1px solid #ddd;
+padding: 30px;
+}
+#footer{
+margin-left: 45px;
+}
