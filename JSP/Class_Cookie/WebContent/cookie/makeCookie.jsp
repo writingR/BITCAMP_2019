@@ -9,8 +9,17 @@
 	// response에 쿠키 객체 추가.
 	response.addCookie(cookie);
 	
-	Cookie c1 = new Cookie("name", "이강인");
+	Cookie c1 = new Cookie("name", "choi");
 	response.addCookie(c1);
+	
+	Cookie c2 = new Cookie("id","cool");
+	c2.setMaxAge(60); // 시간은 1분으로 처리.
+	response.addCookie(c2);
+	
+	Cookie c3 = new Cookie("email", "test@test.com");
+	c3.setMaxAge(60*60); // 시간은 1시간으로.
+	response.addCookie(c3);
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -34,9 +43,10 @@
 
 <!-- contents -->
 <body>
-	
+<h1>쿠키를 생성했습니다.</h1>
+<a href="viewCookie.jsp">viewCookie</a>	
 
-	<h1>쿠키를 생성했습니다.</h1>
+	
 
 
 </body>
