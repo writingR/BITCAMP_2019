@@ -167,5 +167,23 @@ from project.EMP
 order by HIREDATE DESC;
 
 
+#예제.13  --> 사원테이블에서 급여를 내림차순으로 정렬하고 이름이 같은 사람이 존재할 경우 이름의 철자가 빠른 사람부터 검색해보자.
 
+select *
+from project.EMP
+order by SAL DESC, ENAME ASC;
+
+
+#예제.14  --> 사원테이블에서 급여를 내림차순으로 정렬하고 이름이 같은 사람이 존재할 경우 이름의 철자가 빠른 사람부터 검색해보자. (이름,급여만 검색)
+
+select ENAME,SAL
+from project.EMP
+order by SAL DESC, ENAME ASC;
+
+
+#예제.15  --> 사원테이블에서 급여를 내림차순으로 정렬하고 입사일이 같을경우 입사일이 늦게 입사한 사람순으로 검색해보자. (이름,급여,입사일만 검색)
+
+select ENAME,SAL,HIREDATE
+from project.EMP
+order by SAL DESC, HIREDATE ASC;
 
