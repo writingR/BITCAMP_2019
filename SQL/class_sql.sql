@@ -84,5 +84,88 @@ from project.EMP
 where ENAME like '_A%';
 
 
+#예제.5  -->  사원테이블에서 이름에 'A'를 포함하지 않는 사람만을 검색하자.
+
+select *
+from project.EMP
+where ENAME NOT like '%A%';
+
+
+/*
+-- 대상컬럼 = NULL 넣게 되면,
+-- 의미상 말이되지 않기 떄문에 값이 정의되지 않게 됩니다.
+-- = 대신에 IS NULL 을 사용해야 합니다. *** 중요 ****
+-- >,<,>=,<= 도 동일하다!
+
+*/
+
+#예제.6  --> 사원테이블에서 COMM(커미션)이 NULL인 사원을 검색하자.
+
+select *
+from project.EMP
+where COMM IS NULL;
+
+
+#예제.7  --> 사원테이블에서 COMM(커미션)이 NULL이거나 0인 사원을 검색하자.
+
+select *
+from project.EMP
+where COMM IS NULL or COMM = 0;
+
+
+#예제.8  --> 사원테이블에서 COMM(커미션)이 NULL이 아닌 사원을 검색하자.
+
+select *
+from project.EMP
+where COMM IS NOT NULL;
+
+
+#예제.9  --> 사원테이블에서 COMM(커미션)이 NULL이 아닌 사원을 검색하자. (0도 제외)
+
+#첫번째
+select *
+from project.EMP
+where NOT (COMM IS NULL or COMM = 0);
+
+#두번째
+select *
+from project.EMP
+where COMM IS NOT NULL AND COMM > 0;
+
+
+/*
+-- ORDER BY : 오름차순 , 내림차순
+-- ASC : 작은 값부터 정렬 , 사전 순서, 빠른 날짜 순서, NULL -> 가장 마지막에 나옴
+-- DESC : 큰 값부터 정렬 , 사전 반대 순서, 늦은 날짜 순서, NULL -> 가장 먼저 나옴
+-- ORDER BY 뒤에 정의한다. 생략가능하다. 생략 시 오름차순으로 정의된다.
+*/
+
+#예제.10  -->  사원테이블에서 급여 컬럼을 기준으로 오름차순 정렬해서 사원을 검색해보자.
+
+#첫번째
+select *
+from project.EMP
+order by SAL;
+
+#두번째
+select *
+from project.EMP
+order by SAL ASC;
+
+
+#예제.11  --> 사원테이블에서 급여 컬럼을 기준으로 내림차순 정렬해서 사원을 검색해보자.
+
+select *
+from project.EMP
+order by SAL DESC;
+
+
+#예제.12  --> 사원테이블에서 최근 입사한 사원 순으로 사원을 검색해보자.
+
+select *
+from project.EMP
+order by HIREDATE DESC;
+
+
 
 
