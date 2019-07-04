@@ -217,6 +217,23 @@ from project.EMP
 group by JOB
 ;
 
+/*
+HAVING : 조건을 제한할때 Where / 그룹의 결과를 제한할때 HAVING
+*/
+
+#예제18. 사원테이블에서 부서별 평균급여를 출력해라. (단 평균급여가 2000이상인 부서만 출력)
+
+select DEPTNO as "부서번호",format(AVG(SAL),0) as "평균급여"
+from project.EMP
+group by DEPTNO
+having AVG(SAL) >= 2000;
+
+#예제19. 사원테이블에서 부서별 평균급여를 출력해라. (단 평균급여가 2900이상인 부서만 출력)
+
+select DEPTNO as "부서번호",format(AVG(SAL),0) as "평균급여"
+from project.EMP
+group by DEPTNO
+having AVG(SAL) >= 2900;
 
 
 
