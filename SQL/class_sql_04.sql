@@ -252,5 +252,22 @@ where o.custid= c.custid
 	  and o.bookid = b.bookid
       and c.name = '박지성';
 
+
+       
+ # outer join 이용해서 모든내용 출력하기   
+ 
+select *
+from project.Customer;
+
+select distinct (custid)
+from project.Orders;
       
-      
+# 1.먼저 조인해보기.      
+select *
+from project.Orders o, project.Customer c
+where o.custid = c.custid;
+
+select *
+from project.Orders o right outer join project.Customer c
+on o.custid = c.custid;
+

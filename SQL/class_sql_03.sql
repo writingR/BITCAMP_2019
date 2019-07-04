@@ -298,10 +298,48 @@ where SAL BETWEEN s.LOSAL AND s.HISAL
 	  and ENAME = 'SCOTT'
 order by GRADE ;
 
+/*
+Self Join : 하나의 테이블로 조인하는 형태.
+*/
 
 
+select concat(e.ENAME,'의 매니저는 ')as employee, concat(m.ENAME,'입니다.') as manager
+from project.EMP e, project.EMP m
+where e.MGR = m.EMPNO;
 
 
+/*
+ANSI Cross Join
+*/
+
+select *
+from project.EMP
+cross join project.DEPT;
 
 
+/*
+ANSI INNER Join
+*/
 
+select *
+from project.EMP
+INNER JOIN project.DEPT
+ON project.EMP.deptno = project.DEPT.deptno;
+
+# 위와 결과는 같다.
+select*
+from project.EMP,project.DEPT
+where project.EMP.deptno = project.DEPT.deptno;
+
+# 컬럼이름이 동일할 경우 --> USING
+select *
+from project.EMP JOIN project.DEPT
+USING (DEPTNO);
+
+/*
+ANSI Outer Join
+*/
+
+select e.ENAME,m.ENAME
+from project.EMP e LEFT OUTER JOIN project.EMP m
+ON e.MGR = m.EMPNO;
