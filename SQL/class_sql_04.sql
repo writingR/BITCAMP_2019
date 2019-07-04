@@ -189,3 +189,16 @@ select name,address
 from project.Customer
 where name like '김%아';
 
+
+#예제12. 테이블에서 회원의 이름과 주문정보를 출력해보자.
+
+select o.orderid,c.name
+from project.Orders as o, project.Customer as c
+where o.custid = c.custid;
+
+# 위 조건에서 회원이름 '박지성'을 찾아보자.
+
+select o.orderid,c.name
+from project.Orders as o, project.Customer as c
+where o.custid = c.custid
+and c.name = '박지성';

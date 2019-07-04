@@ -235,6 +235,39 @@ from project.EMP
 group by DEPTNO
 having AVG(SAL) >= 2900;
 
+/*
+JOIN : 2개 이상의 테이블을 옆으로 붙인다. --> 표현하는 컬럼이 늘어난다.
+*/
+
+#Cross Join
+select *
+from project.EMP,project.DEPT;
+
+#Equi Join
+select *
+from project.EMP as e, project.DEPT as d
+where e.DEPTNO = d.DEPTNO;
+
+#예제20. 테이블에서 이름이 SCOTT인 사람의 부서명을 출력해보자
+
+select e.ENAME,d.DNAME
+from project.EMP as e, project.DEPT as d
+where e.DEPTNO = d.DEPTNO
+AND e.ENAME = 'SCOTT';
+
+#추가로 부서번호를 출력해야 할 경우,  --> EMP,DEPT 두 테이블에 DEPTNO컬럼이 존재하기때문에 e.이나 d.을 명시해줘야한다.
+
+select e.ENAME,d.DNAME,e.DEPTNO
+from project.EMP as e, project.DEPT as d
+where e.DEPTNO = d.DEPTNO
+AND e.ENAME = 'SCOTT';
+
+
+
+
+
+
+
 
 
 
