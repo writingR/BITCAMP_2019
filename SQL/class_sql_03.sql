@@ -18,6 +18,11 @@ CREATE TABLE project.emp (
   KEY `FK_DEPTNO` (`DEPTNO`),
   CONSTRAINT `FK_DEPTNO` FOREIGN KEY (`DEPTNO`) REFERENCES `dept` (`DEPTNO`)
 );
+CREATE TABLE project.SALGRADE 
+(  GRADE int, 
+ LOSAL int, 
+ HISAL int 
+); 
 
 INSERT INTO project.DEPT VALUES (10, 'ACCOUNTING', 'NEW YORK');
 
@@ -44,6 +49,12 @@ INSERT INTO project.EMP VALUES (7876,'ADAMS','CLERK',7788,STR_TO_DATE('13-7-1987
 INSERT INTO project.EMP VALUES (7900,'JAMES','CLERK',7698,STR_TO_DATE('3-12-1981','%d-%m-%Y'),950,NULL,30);
 INSERT INTO project.EMP VALUES (7902,'FORD','ANALYST',7566,STR_TO_DATE('3-12-1981','%d-%m-%Y'),3000,NULL,20);
 INSERT INTO project.EMP VALUES (7934,'MILLER','CLERK',7782,STR_TO_DATE('23-1-1982','%d-%m-%Y'),1300,NULL,10);
+INSERT INTO project.SALGRADE VALUES (1,700,1200); 
+INSERT INTO project.SALGRADE VALUES (2,1201,1400); 
+INSERT INTO project.SALGRADE VALUES (3,1401,2000); 
+INSERT INTO project.SALGRADE VALUES (4,2001,3000); 
+INSERT INTO project.SALGRADE VALUES (5,3001,9999); 
+
 
 /*
  2019/07/04
@@ -262,7 +273,30 @@ from project.EMP as e, project.DEPT as d
 where e.DEPTNO = d.DEPTNO
 AND e.ENAME = 'SCOTT';
 
+# 별칭 사용하기
 
+select e.ENAME,d.DNAME,e.DEPTNO
+from project.EMP e, project.DEPT d
+where e.DEPTNO = d.DEPTNO
+AND e.ENAME = 'SCOTT';
+
+
+/*
+Non-Equi Join
+*/
+
+select ENAME,SAL,GRADE,LOSAL,HISAL
+from project.EMP e, project.SALGRADE s
+where SAL BETWEEN s.LOSAL AND s.HISAL
+order by GRADE ;
+
+# 위 조건에서 SCOTT 사원이 어느 등급에 속해있는지 찾아보자.
+
+select ENAME,SAL,GRADE,LOSAL,HISAL
+from project.EMP e, project.SALGRADE s
+where SAL BETWEEN s.LOSAL AND s.HISAL
+	  and ENAME = 'SCOTT'
+order by GRADE ;
 
 
 

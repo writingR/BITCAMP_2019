@@ -202,3 +202,55 @@ select o.orderid,c.name
 from project.Orders as o, project.Customer as c
 where o.custid = c.custid
 and c.name = '박지성';
+
+# 위 조건에서 총 구매액과 총 구매횟수를 구해보자.
+
+select SUM(saleprice) as '총 구매액', count(*) as '총 구매횟수'
+from project.Orders as o, project.Customer as c
+where o.custid = c.custid and c.name = '박지성';
+
+/*
+ 테이블 3개 조인하기
+ --> customer, book, orders
+*/
+
+# Cross Join
+
+select *
+from project.Orders o, project.Customer c;
+
+select *
+from project.Orders o, project.Customer c, project.Book b;
+
+# custid 는 조인을 시켜서 문제가 되지 않지만 bookid는 조인을 시켜주지 않아서 서로 다른 정보를 갖게 된다.
+select *
+from project.Orders o, project.Customer c, project.Book b
+where o.custid= c.custid
+;
+
+# 해결책 ---> bookid도 조인을 시켜준다.   
+select *
+from project.Orders o, project.Customer c, project.Book b
+where o.custid= c.custid
+      and o.bookid = b.bookid
+;
+
+#예제13. 테이블에서 박지성 고객이 주문한 책의 이름을 출력해보자.
+
+select b.bookname
+from project.Orders o, project.Customer c, project.Book b
+where o.custid= c.custid
+	  and o.bookid = b.bookid
+      and c.name = '박지성';
+      
+      
+# 위 조건에서 추가로 출판사를 추가로 출력할 경우,
+
+select b.bookname, b.publisher
+from project.Orders o, project.Customer c, project.Book b
+where o.custid= c.custid
+	  and o.bookid = b.bookid
+      and c.name = '박지성';
+
+      
+      
