@@ -121,3 +121,103 @@ select MAX(SAL) as "최대 급여", MIN(SAL) as "최소 급여"
 from project.EMP
 ;
 
+/*
+COUNT : NULL을 포함하지 않는다, row의 개수를 반환한다.
+*/
+
+#예제8. 사원테이블에서 회사에 소속된 사원의 수를 구해보자.
+
+select COUNT(*) as '전체 사원의 수'
+from project.EMP
+;
+
+#예제9. 사원테이블에서 10번부서의 소속된 직원의 수를 구해보자.
+
+select COUNT(*)
+from project.EMP
+where DEPTNO = 10;
+
+#예제10. 사원테이블에서 회사에 소속된 직원중에 커미션을 받는 직원의 수를 구해보자.
+
+select COUNT(COMM)
+from project.EMP;
+
+#예제11. 사원테이블에서 부서의 수를 구해보자.
+
+select COUNT(*)
+from project.DEPT;
+
+#예제12. 사원테이블에서 부서번호를 구해보자.
+
+select DEPTNO
+from project.EMP;
+
+#중복된 것은 출력하지 말것 --> distinct
+select distinct DEPTNO
+from project.EMP;
+
+#예제13. 사원테이블에서 부서번호의 개수를 구해보자.
+
+select COUNT(DEPTNO)
+from project.EMP;
+
+#중복된 개수는 제외
+select COUNT(distinct DEPTNO)
+from project.EMP
+;
+
+#예제14. 사원테이블에서 사원의 직급을 검색해보자.
+
+select job
+from project.EMP;
+
+#중복된것은 제외
+select distinct job
+from project.EMP;
+
+#예제15. 사원테이블에서 사원의 직급의 개수를 구해보자.
+
+select COUNT(job)
+from project.EMP;
+
+#중복된 개수는 제외
+select COUNT(distinct job)
+from project.EMP;
+
+/*
+GROUP BY: 특정 컬럼 값을 기준으로 그룹핑을 해야할 경우 사용한다, 집합함수(SUM,AVG,MAX,MIN) 함께 적용가능
+컬럼이름 --> 그룹핑의 기준
+*/
+
+#예제15. 사원테이블에서 부서별,직급별로 급여를 검색해보자.
+
+select job,DEPTNO,SAL
+from project.EMP
+group by job,DEPTNO;
+
+#예제16. 사원테이블에서 부서별 평균급여를 검색해보자.
+
+select DEPTNO as '부서번호' ,truncate(AVG(SAL),0) as '부서별 평균급여'
+from project.EMP
+group by DEPTNO order by DEPTNO desc;
+
+
+#예제17. 사원테이블에서 부서별 급여합계, 평균급여, 총사원 , 커미션을 받는 사원의 수, 가장 높은 급여, 가장 낮은 급여를 구해보자. 
+
+select DEPTNO, SUM(SAL), ROUND(AVG(SAL)), COUNT(*), COUNT(COMM), MAX(SAL), MIN(SAL)
+from project.EMP
+group by DEPTNO 
+order by DEPTNO desc
+;
+
+#예제18. 사원테이블에서 직무별 지표를 출력해보자.
+
+select JOB, COUNT(*) as "직원의 수" , format((SAL),0) as "직원의 총합", round(AVG(SAL)) as "급여의 평균", MAX(SAL), MIN(SAL)
+from project.EMP
+group by JOB
+;
+
+
+
+
+
