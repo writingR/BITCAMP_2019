@@ -147,11 +147,73 @@ from project.EMP,
 	(select@rownum:=0)TMP
 order by ename;
 
+# 중첩질의
 
+# 예제1. 평균 주문금액 이하의 주문에 대해서 주문번호와 금액을 보이시오.
 
+#부속질의 없이
+select orderid,format(AVG(saleprice),0)
+from project.ORDERS
+where saleprice <= 11800
+group by orderid;
 
+#부속질의 이용하여
+select orderid,saleprice
+from project.ORDERS
+where saleprice <= (select AVG(saleprice)
+					from project.ORDERS);
 
+# 예제2. 각 고객의 평균 주문금액보다 큰 금액의 주문 내역에 대해서 주문번호, 고객번호, 금액을 보이시오.
 
+#부속질의 없이
+select orderid as 주문번호, custid as 고객번호, saleprice as 금액
+from project.ORDERS
+where saleprice >= 11800;
 
+#부속질의 사용
+select orderid as 주문번호, custid as 고객번호, saleprice as 금액
+from project.ORDERS od
+where saleprice >= (select AVG(saleprice)
+					from project.ORDERS ob
+                    where od.custid = ob.custid);
 
-      
+# 예제3. 대한민국에 거주하는 고객에게 판매한 도서의 총판매액을 구하시오.
+
+#부속질의
+select SUM(saleprice) as 총판매액
+from project.ORDERS o
+where o.custid in (select c.custid
+				   from project.Customer c
+				   where address LIKE '%대한민국%');
+
+#JOIN
+select SUM(saleprice) as 총판매액
+from project.ORDERS o JOIN project.Customer c
+ON o.custid = c.custid
+where address LIKE '%대한민국%';
+
+# 예제4. 3번 고객이 주문한 도서의 최고 금액보다 더 비싼 도서를 구입한 주문의 주문번호와 금액을 보이시오.
+
+#부속질의
+select orderid,saleprice
+from project.ORDERS
+where saleprice > ALL (select saleprice
+					   from project.ORDERS
+					   where custid = 3);
+
+#3번고객의 MAX(saleprice)를 구한뒤 고객들과 비교하는 테이블을 만드는 방법
+select orderid,saleprice
+from project.ORDERS
+where saleprice > (select MAX(saleprice)
+					   from project.ORDERS
+					   where custid = 3);
+
+# 예제5. EXISTS 연산자로 대한민국에 거주하는 고객에게 판매한 도서의 총 판매액을 구하시오.
+
+#부속질의
+select SUM(saleprice) as '총판매액'
+from project.Orders o
+where exists (select *
+			  from project.Customer c
+              where  o.custid = c.custid and
+					 c.address LIKE '대한민국%');
