@@ -11,7 +11,7 @@ Spring Framwork ......
 - https://github.com/writingR/BITCAMP_2019/tree/master/Spring/GuestBook-SpringMvc
 2. Membermanager-SpringMvc (home, join, login, mypage,list,logout)
 - https://github.com/writingR/BITCAMP_2019/tree/master/Spring/Membermanager-SpringMvc
-- 추가 기능, css 수정예정
+- 추가 기능 (삭제,수정) , css 수정예정
 
 ### BITCAMP_2019 work Image Link
 1. GuestBook-SpringMvc
