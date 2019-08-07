@@ -16,8 +16,12 @@ Spring Framwork ......
 1. GuestBook-SpringMvc
 
 2. Membermanager-SpringMvc
-- https://user-images.githubusercontent.com/50777481/59154007-9bd15380-8aa3-11e9-8435-bb8f518b1456.PNG
+- 메인페이지
 <img src="https://github.com/writingR/BITCAMP_2019/blob/master/Spring/Membermanager-SpringMvc/src/main/webapp/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80.PNG?raw=true">
+
+- HOME
+<img src="https://github.com/writingR/BITCAMP_2019/blob/master/Spring/Membermanager-
+SpringMvc/src/main/webapp/HOME.PNG?raw=true">
 
 
 Instagram: @writing_r
