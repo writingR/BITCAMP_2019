@@ -9,8 +9,9 @@ Spring Framwork ......
 ### BITCAMP_2019 work Link
 1. GuestBook-SpringMvc
 - https://github.com/writingR/BITCAMP_2019/tree/master/Spring/GuestBook-SpringMvc
-2. project1 ---> 회원정보 폼 (정보추가,수정,삭제)
+2. Membermanager-SpringMvc (home, join, login, mypage,list,logout)
 - https://github.com/writingR/BITCAMP_2019/tree/master/Spring/Membermanager-SpringMvc
+- 추가 기능, css 수정예정
 
 ### BITCAMP_2019 work Image Link
 1. GuestBook-SpringMvc
