@@ -8,16 +8,37 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bitcamp.guest.domain.Message;
 import com.bitcamp.guest.jdbc.JdbcUtil;
 
 
-@Repository("dao")
-public class MessageDao { // messageDao
 
-	public int insert(Connection conn, Message message ) {
+@Repository("jdbcTemplateDao")
+public class MessageJdbcTemplateDao { // messageDao
+	
+	@Autowired
+	JdbcTemplate template;
+	
+	public int insert(Message message ) {
+		
+		
+		String sql = "INSERT INTO GUESTBOOK_MESSAGE "
+				+ " (GUEST_NAME, PASSWORD, MESSAGE) "
+					 + "values (?,?,?)";
+		
+		 return template.update(sql,
+									message.getGuestName(),
+									message.getPassword(),
+									message.getMessage()
+									);
+			}
+
+	public int insert(Connection conn, Message message) {
 		int rCnt = 0;
 		PreparedStatement pstmt = null;
 		
@@ -50,6 +71,16 @@ public class MessageDao { // messageDao
 		return rCnt;
 	}
 
+	
+	public Message select(int messageId) {
+		
+		String sql = "select * from guestbook_message where message_id=?";
+		
+		return  template.queryForObject(sql, new MessageRowMapper(),messageId);
+		//return template.query(sql, new MessageRowMapper(), messageId).get(0);
+		
+	}
+	
 	
 	public Message select(Connection conn, int messageId) {
 		
@@ -94,7 +125,7 @@ public class MessageDao { // messageDao
 	
 	
 	public int selectCount(Connection conn) {
-
+		
 		Statement stmt = null;
 		ResultSet rs = null;
 		
@@ -118,46 +149,33 @@ public class MessageDao { // messageDao
 		
 		return totalCnt;
 	}
+	
+	public int selectCount() {
+		
+		return template.queryForObject("select count(*) from guestbook_message", Integer.class);
+	}
+	
+	/* public List<Message> selectList(Connection conn, int firstRow, int endRow) */
+	public List<Message> selectList(int firstRow, int MESSAGE_COUNT_PER_PAGE) {
 
-	public List<Message> selectList(Connection conn, int firstRow, int endRow) {
-		
-		List<Message> list = new ArrayList<Message>();
-		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null ;
-		
 		String sql = "SELECT * FROM guestbook_message WHERE message_id ORDER BY message_id DESC LIMIT ?,?";
+
 		
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(2, endRow);
-			pstmt.setInt(1, firstRow);
-			
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				
-				Message msg = new Message();
-				msg.setId(rs.getInt(1));
-				msg.setGuestName(rs.getString(2));
-				msg.setPassword(rs.getString(3));
-				msg.setMessage(rs.getString(4));
-				
-				list.add(msg);
-				
-			}
-			
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		return list;
+		return template.query(sql, 
+				new MessageRowMapper(),
+				firstRow,
+				MESSAGE_COUNT_PER_PAGE
+				);
 	}
 
+	
+	public int deleteMessage(int messageId) {
+		
+		String sql = "delete from guestbook_message where message_id=?";
+		
+		return template.update(sql,messageId);
+		
+	}
 	
 	
 	

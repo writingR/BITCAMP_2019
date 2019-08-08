@@ -36,7 +36,7 @@
 		메시지 번호 : ${message.id}<br> 
 		손님 이름 :${message.guestName}<br>
 		메시지 :${message.message}<br> 
-		<a href="delete?message_id=${message.id}">삭제하기</a>
+		<a href="delete?messageId=${message.id}">삭제하기</a>
 		</div>
 	
 	

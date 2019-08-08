@@ -31,14 +31,13 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-
+<!-- 
 	<servlet>
 		<servlet-name>DBCPInit</servlet-name>
 		<servlet-class>com.bitcamp.guest.jdbc.DBCPInit</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-
-
+ -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

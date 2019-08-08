@@ -3,9 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -20,6 +23,22 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	
+	<beans:bean id="dataSource" 
+	class="org.apache.commons.dbcp2.BasicDataSource"
+	p:driverClassName="com.mysql.cj.jdbc.Driver"
+	p:url="jdbc:mysql://localhost:3306/member?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=UTC"
+	p:username="scott"
+	p:password="tiger" />
+	
+	<beans:bean
+		id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="dataSource" >
+    </beans:bean>  
+      
+    <tx:annotation-driven
+    	transaction-manager="transactionManager"/>  
 	
 	<context:component-scan base-package="com.bitcamp.guest" />
 	

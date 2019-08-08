@@ -27,7 +27,7 @@ public class GuestDeleteController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String delete(
-			@RequestParam("message_id") int message_id,
+			@RequestParam("messageId") int messageId,
 			@RequestParam("password") String password,
 			Model model
 			) {
@@ -38,7 +38,7 @@ public class GuestDeleteController {
 		
 		
 		try {
-			resultCnt = deleteService.deleteMessage(message_id, password);
+			resultCnt = deleteService.deleteMessage(messageId, password);
 			chk = true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -57,6 +57,7 @@ public class GuestDeleteController {
 		model.addAttribute("chk", chk);
 		model.addAttribute("resultCnt", resultCnt);
 		model.addAttribute("msg", msg);
+		
 		
 		
 		
